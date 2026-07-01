@@ -12,6 +12,10 @@ A conversational movie recommendation system that combines collaborative filteri
 
 The agent calls a collaborative filtering model to find similar movies, then applies qualitative re-ranking based on genre metadata to filter for tone — returning results like The Grand Budapest Hotel, Catch Me If You Can, and The Truman Show.
 
+## Screenshot
+
+![Movie Recommender Agent](assets/demo.png)
+
 ## Architecture
 User (chat UI)
 │
