@@ -14,7 +14,7 @@ The agent calls a collaborative filtering model to find similar movies, then app
 
 ## Screenshot
 
-![Movie Recommender Agent](assets/demo.png)
+<img src="assets/screenshot.png" alt="Movie Recommender Agent" width="500"/>
 
 ## Architecture
 User (chat UI)
