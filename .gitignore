@@ -1,0 +1,7 @@
+.env
+__pycache__/
+*.pyc
+data/
+*.npy
+chroma_db/
+.DS_Store
