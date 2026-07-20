@@ -12,36 +12,10 @@ A conversational movie recommendation system that combines collaborative filteri
 
 The agent calls a collaborative filtering model to find similar movies, then applies qualitative re-ranking based on genre metadata to filter for tone — returning results like The Grand Budapest Hotel, Catch Me If You Can, and The Truman Show.
 
-## Screenshot
-
-<img src="assets/screenshot.png" alt="Movie Recommender Agent" width="500"/>
-
-## Architecture
-User (chat UI)
-│
-▼
-FastAPI Backend  ←──  session memory (sliding window)
-│
-▼
-LLM Agent (Groq)  ←──  system prompt + conversation history
-│
-▼  discovers + calls tools via MCP protocol
-MCP Server
-│
-├── get_similar_movies()       ← item-based CF (cosine similarity)
-├── get_popular_movies()       ← top rated by avg rating
-├── search_movies_by_genre()   ← genre-filtered search
-└── search_movie_by_title()    ← title lookup with avg rating
-│
-▼
-CF Model (scikit-learn)
-│
-MovieLens ml-latest-small dataset (100k ratings, 9742 movies)
 
 ## Why this architecture
 
-The CF model handles what CF is good at — finding statistically similar movies from user rating patterns. The LLM handles what LLMs are good at — qualitative, language-based judgment like "but more lighthearted." Neither is asked to do the other's job.
-
+The CF model handles finding statistically similar movies from user rating patterns. The LLM handles qualitative, language-based judgment like "but more lighthearted."
 MCP (Model Context Protocol) exposes the recommender as a standardized tool interface, meaning any MCP-compatible client can connect to the same recommendation server without reimplementing the underlying logic.
 
 ## Stack
